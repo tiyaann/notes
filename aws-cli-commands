@@ -1,0 +1,32 @@
+How to install this cli
+------------------------
+
+Verify if CLI is installed
+	aws --version
+	
+Download cli installer
+	https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+	
+Create IAM User with programmatic access and download access keys
+From your cli
+	aws configure
+
+
+Commands to upload to S3 bucket via CLI
+---------------------------------------
+List IAM users 
+	aws iam list-users
+	
+List S3 buckets
+	aws s3 ls
+	
+upload single file to s3 bucket	
+	cd <your-directory>
+	aws s3 cp commands.txt s3://<your-bucket-name>
+
+sync the entire directory to s3
+	cd <your-directory>
+	aws s3 sync . s3://<your-bucket-name>
+
+List EC2 instances
+	aws ec2 describe-instances	

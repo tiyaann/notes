@@ -1,0 +1,46 @@
+Steps to mount EBS Volume on a Linux instance
+---------------------------------------------
+1. List the devices
+	lsblk
+
+2. Check if the device has a filesystem ? 
+   (if the output is 'data', then it means there is no filesystem)
+	sudo file -s /dev/xvdf
+
+3. If no filesystem, then install 'xfs' filesystem
+	sudo mkfs -t xfs /dev/xvdf
+
+4. Check if the device has a filesystem ?
+	sudo file -s /dev/xvdf
+
+5. Create a directory on the EC2 instance
+	sudo mkdir /data
+	
+6. Mount the device to the above directory
+	sudo mount /dev/xvdf /data
+
+7. change into that directory and create filesystem
+   (nano is a text editor in linux)
+   	sudo nano testfile
+	ctrl+x, Y
+	
+8. check the file created
+	sudo cat testfile
+	
+Steps to attach this EBS volume to another instances in Same Availability Zone
+------------------------------------------------------------------------------
+1. Create a new EC2 Instance (second instance),  in the same AZ as the EBS Volume	
+2. Stop the First Instance.
+3. Detach the volume from the first instance. 
+4. Attach the volume to the second instance.
+5. List the devices,
+6. Check if file system is installed ?   - It will have the file system
+7. create a directory
+8. Mount the volume.
+
+
+To connect EBS volume on Windows instance
+------------------------------------------
+1. open Windows PowerShell
+2. cd C:\ProgramData\Amazon\EC2-Windows\Launch\Scripts
+3. .\InitializeDisks.ps1
