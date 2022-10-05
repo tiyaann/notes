@@ -1,8 +1,17 @@
-Install plugin
-0. Dashboard -> Manage Jenkins -> Manage Plugins -> Available -> search S3 -> S3 Publisher Plugin
+#Install plugin
+Dashboard -> Manage Jenkins -> Manage Plugins -> Available -> search S3 -> S3 Publisher Plugin
 
-Create IAM user in AWS with access keys
-1. Create IAM User with programmatic access and download credentials
+#Create IAM user in AWS with access keys
+Create IAM User with programmatic access and download credentials
 
-Configure Jenkins with S3 access
-2. Dashboard -> Manage Jenkins -> Configure System -> S3 Profile -> Add profile
+#Configure Jenkins with S3 access
+Dashboard -> Manage Jenkins -> Configure System -> S3 Profile -> Add profile
+
+#Create bucket in S3 - 
+
+#Configure BuildProject in Jenkins
+Add Post build step -> Publish artifacts to s3 bucket -> select s3 profile
+select files to upload ->
+	Source = target/*.jar
+	destination = <your-bucket-name>
+	region = us-east-1
