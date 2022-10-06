@@ -35,3 +35,13 @@ docker container run -d --name myjenkins -p 80:8080 jenkins/jenkins:lts
 
 -- get the initial password
 docker logs myjenkins
+
+-- list volumes
+docker volume ls
+
+-- create volume
+docker volume create jenkinsvolume
+
+-- run jenkins with named volume
+docker container run -d --name myjenkins -p 8080:8080 -v jenkinsvolume:/var/jenkins_home  jenkins/jenkins
+
