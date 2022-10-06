@@ -1,0 +1,19 @@
+# docker commands
+
+docker run hello-world
+
+-- list all images
+docker images
+
+-- commands to list hostname and ipaddress
+ hostname
+ ifconfig
+
+-- pull images 
+ docker pull alpine
+
+-- run alpine container and list directoriers inside that 
+ docker run alpine ls -al
+
+-- list all containers 
+ docker container ps -a
