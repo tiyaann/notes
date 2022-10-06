@@ -17,3 +17,15 @@ docker images
 
 -- list all containers 
  docker container ps -a
+ 
+ 
+-- run container with port mapping and environment variable
+-- Port Mapping
+docker container run -d --name mystatic -e AUTHOR="RK" -p 80:80  dockersamples/static-site
+
+-- check this container has its own ip. go to the network section of the inspect output
+docker inspect mystatic
+
+-- go into the container
+docker exec -it mystatic /bin/bash
+--> env  (to see the environment variables)
