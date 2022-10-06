@@ -29,3 +29,9 @@ docker inspect mystatic
 -- go into the container
 docker exec -it mystatic /bin/bash
 --> env  (to see the environment variables)
+
+-- command to run jenkins
+docker container run -d --name myjenkins -p 80:8080 jenkins/jenkins:lts
+
+-- get the initial password
+docker logs myjenkins
