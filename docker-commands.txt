@@ -50,3 +50,17 @@ docker container stop myjenkins
 
 -- delete a container
 docker container rm myjenkins
+
+-- steps to build image custom image
+git clone https://github.com/rksljfsd/p5docs.git
+cd p5docs/simple-website
+docker build -t mywebsiteimage .
+docker images
+
+-- run container from custom image
+docker container run -d --name myweb1 -p 80:80 mywebsiteimage
+
+-- push our image to docker hub
+docker login
+docker tag mywebsiteimage rmeiappan/mywebsiteimage
+docker push rmeiappan/mywebsiteimage
