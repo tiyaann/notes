@@ -62,5 +62,8 @@ docker container run -d --name myweb1 -p 80:80 mywebsiteimage
 
 -- push our image to docker hub
 docker login
-docker tag mywebsiteimage rmeiappan/mywebsiteimage
-docker push rmeiappan/mywebsiteimage
+docker tag mywebsiteimage your-dockerhub-username/mywebsiteimage
+docker push your-dockerhub-username/mywebsiteimage
+
+-- run container from other image
+docker container run -d --name rkwebsite -p 80:80 your-dockerhub-username/mywebsiteimage
