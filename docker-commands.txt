@@ -70,3 +70,19 @@ docker container run -d --name rkwebsite -p 80:80 your-dockerhub-username/mywebs
 
 -- remove image
 docker image rm image-id
+
+
+--- docker swarm commands
+
+- create 3 ec2 instances in same security group
+- edit that security group and allow all traffic from that same security group as source
+- install docker on all 3 ec2 instances (Note: try using userdata)
+- take any ec2 instance and call it master
+- putty into master and run this command
+   docker swarm init --advertise-addr <private-ip-of-master>
+   - the above command will return a command - copy this command and execute on both the nodes
+   docker node ls - list all nodes on swarm 
+- docker service create --name myapp1 --replicas 5 -p 80:80 my-app
+- docker service ls
+- docker service ps myapp1
+- docker service rm myapp1
