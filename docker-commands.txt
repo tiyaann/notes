@@ -67,3 +67,6 @@ docker push your-dockerhub-username/mywebsiteimage
 
 -- run container from other image
 docker container run -d --name rkwebsite -p 80:80 your-dockerhub-username/mywebsiteimage
+
+-- remove image
+docker image rm image-id
