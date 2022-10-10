@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: uipod
+  labels:
+    app: nginx
+    type: frontend
+spec:
+  containers:
+    - name: webservercontainer1
+      image: nginx:latest

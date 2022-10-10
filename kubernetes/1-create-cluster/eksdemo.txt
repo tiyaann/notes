@@ -1,0 +1,58 @@
+0. Install Chocolatey - package manager for windows
+
+1. Remove existing Kubectl
+   - delete directory C:\Users\your-user-name\.kube
+   - delete directory c:\tools\kubectl
+   
+2. Remove existing eksctl
+   - delete directory c:\tools\eks*
+   - Open cmd prompt in administrator mode 
+   - choco uninstall eksctl
+   
+3. Install Kubectl
+   - From command prompt -> cd c:/tools/kubectl
+   - run this cmd -> curl -LO "https://dl.k8s.io/release/v1.25.0/bin/windows/amd64/kubectl.exe"
+   - kube config is located under - C:\Users\your-user-name\.kube\config file
+   - this kubeconfig file contains details about how to connect to the cluster. 
+   - It gets updated when we create the cluster below.
+   
+4. Install EKSctl
+   - Go to this website https://docs.aws.amazon.com/eks/latest/userguide/eksctl.html 
+   - and select windows option 
+   - It will show the below url, which will download the zip file.
+     https://github.com/weaveworks/eksctl/releases/download/v0.111.0/eksctl_Windows_amd64.zip
+   - extract .zip to c:/tools
+   - add c:\tools\eksctl to windows path
+   
+5. AWSCLI
+   - Install AWS CLI on your laptop
+   - Configure AWS CLI with an IAM user who has appropriate rights to create EKS Cluster.
+   - Check if aws cli has been installed
+     aws --version
+   - check if aws cli is configured properly by running this command
+     aws sts get-caller-identity
+   
+6. Create eks cluster
+   - Create the eksworkshop.yaml file as below
+		apiVersion: eksctl.io/v1alpha5
+		kind: ClusterConfig
+		metadata:
+		  name: eksworkshop-eksctl
+		  region: 'us-east-1'
+		  version: '1.20'
+		availabilityZones:
+		  - 'us-east-1a'
+		  - 'us-east-1b'
+		  - 'us-east-1c'
+		managedNodeGroups:
+		  - name: nodegroup
+			instanceType: t2.small
+			desiredCapacity: 3
+			ssh:
+			  allow: true
+			  publicKeyName: myfirstec2keypair
+	- Run this command , to create the cluster
+		- eksctl create cluster -f eksworkshop.yaml
+	- The cluster will be created after 20 minutes
+
+7. check the nodes - kubectl get nodes

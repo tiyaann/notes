@@ -1,0 +1,98 @@
+ Id CommandLine                                                                                                                                                         
+  -- -----------                                                                                                                                                         
+   1 kubectl get nodes                                                                                                                                                   
+   2 kubectl get pods                                                                                                                                                    
+   3 cd C:\your-work-directory                                                                                                                                           
+   4 mkdir k8s                                                                                                                                                           
+   5 cd k8s                                                                                                                                                              
+   6 clear                                                                                                                                                               
+   7 kubectl get nodes                                                                                                                                                   
+   8 kubectl run demopod --image=httpd                                                                                                                                   
+   9 kubectl get pods                                                                                                                                                    
+  10 kubectl get pods -o wide                                                                                                                                            
+  11 kubectl get pods -o wide                                                                                                                                            
+  12 dir                                                                                                                                                                 
+  13 kubectl create - f basicpod.yml                                                                                                                                     
+  14 cls                                                                                                                                                                 
+  15 kubectl create -f basicpod.yml                                                                                                                                      
+  16 kubectl get pods -o wide                                                                                                                                            
+  17 kubectl describe pod webserverpod                                                                                                                                   
+  18 kubectl get nodes                                                                                                                                                   
+  19 kubectl get pods                                                                                                                                                    
+  20 kubectl delete pod demopod                                                                                                                                          
+  21 kubectl delete pod webserverpod                                                                                                                                     
+  22 kubectl get pods                                                                                                                                                    
+  23 kubectl create -f .\multi-container-pod.yml                                                                                                                         
+  24 clear                                                                                                                                                               
+  25 kubectl create -f .\multi-container-pod.yml                                                                                                                         
+  26 kubectl get pods -o wide                                                                                                                                            
+  27 kubectl get pods -o wide                                                                                                                                            
+  28 kubectl describe multicontainerpod                                                                                                                                  
+  29 kubectl describe pod multicontainerpod                                                                                                                              
+  30 kubectl apply -f .\multi-container-pod.yml                                                                                                                          
+  31 kubectl describe pod multicontainerpod                                                                                                                              
+  32 kubectl describe multicontainerpod                                                                                                                                  
+  33 kubectl get pods -o wide                                                                                                                                            
+  34 kubectl describe pod multicontainerpod                                                                                                                              
+  35 kubectl get pods -o wide                                                                                                                                            
+  36 kubectl logs multicontainerpod                                                                                                                                      
+  37 kubectl logs multicontainerpod secondcontainer                                                                                                                      
+  38 kubectl logs multicontainerpod firstcontainer                                                                                                                       
+  39 kubectl delete pods --all                       
+
+  40 kubectl get namespaces                                                                                                                                              
+  42 kubectl get ns                                                                                                                                                      
+  43 kubectl create ns production                                                                                                                                        
+  44 kubectl run prodapp --image=nginx -n production                                                                                                                     
+  45 kubectl get pods                                                                                                                                                    
+  46 kubectl get pods -n production                                                                                                                                      
+  47 clear                                                                                                                                                               
+  48 kubectl get pods                                                                                                                                                    
+  49 kubectl get pods -A                
+    56 kubectl get pods --show-labels                                                                                                                                      
+  57 kubectl run demopod --image=httpd                                                                                                                                   
+  58 kubectl get pods --show-labels                                                                                                                                      
+  59 kubectl run pod3 --image=nginx                                                                                                                                      
+  60 kubectl get pods --show-labels                                                                                                                                      
+  61 kubectl label pod demopod color=red                                                                                                                                 
+  62 kubectl label pod pod3 color=red                                                                                                                                    
+  63 kubectl label pod webserverpod color=blue                                                                                                                           
+  64 kubectl get pods --show-labels                                                                                                                                      
+  65 kubectl label pod demopod createdby=RK                                                                                                                              
+  66 kubectl label pod demopod run-                                                                                                                                      
+  67 kubectl get pods --show-labels  
+
+  kubectl get pods -o wide
+kubectl exec -it dempod2 bash
+kubectl exec -it demopod2 bash
+kubectl describe pod demopod2
+kubectl delete pod demopod2
+kubectl run demopod --image=nginx
+kubectl get pods -o wide
+kubectl exec -it demopod bash
+kubectl get svc
+kubectl get endpoints ui-service
+kubectl exec -it demopod bash
+kubectl label pod angpod app=webserver
+kubectl get endpoints ui-service
+kubectl exec -it demopod bash
+cd k8s
+dir
+kubectl create -f ui-service-ext.yml
+kubectl get svc
+kubectl get nodes -o wide
+curl 3.238.126.139:31853
+kubectl get endpoints ui-service-ext
+kubectl run mynginx --image=nginx
+kubectl label pod mynginx app=nginx
+curl 3.238.126.139:31853
+
+
+-- deploy angular app in k8s
+118 kubectl run myangpod --image=your-dockerhub-account/myangularapp                                                                                                                 
+ 119 kubectl get pods -o wide                                                                                                                                            
+ 120 kubectl create -f .\ui-service-ext.yml                                                                                                                              
+ 121 kubectl get endpoints ui-service-ext                                                                                                                                
+ 122 kubectl label pod myangpod app=angularapp                                                                                                                           
+ 123 kubectl get endpoints ui-service-ext                                                                                                                                
+ 124 kubectl get svc                              
